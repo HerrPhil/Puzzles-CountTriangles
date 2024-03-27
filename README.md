@@ -1,1 +1,94 @@
 # Puzzles-CountTriangles
+
+## Overview
+
+Count the number of triangles that can be built from a given set of edges.
+
+### Details
+
+An array A consisting of N integers is given.
+
+A triplet (P, Q, R) is *triangular* if it is possible to build a triangle with sides of lengths A[P], A[Q], and A[R].
+
+In other words, triplet (P, Q, R) is *triangular* if 0 <= P < Q < R < N, and:
+
+- A[P] + A[Q] > A[R]
+- A[Q] + A[R] > A[P]
+- A[R] + A[P] > A[Q]
+
+For example, consider array A such that:
+
+```
+A[0] = 10
+A[1] = 2
+A[2] = 5
+A[3] = 1
+A[4] = 8
+A[5] = 12
+```
+
+There are C(6,3) unordered combinations = 6!/(3!(6-3)!) = 6!/(3!*3!) = 720/(6*6) = 720/36 = 20
+
+```
+Elements
+(0, 1, 2)
+(0, 1, 3)
+(0, 1, 4)
+(0, 1, 5)
+(0, 2, 3)
+(0, 2, 4)
+(0, 2, 5)
+(0, 3, 4)
+(0, 3, 5)
+(0, 4, 5)
+(1, 2, 3)
+(1, 2, 4)
+(1, 2, 5)
+(1, 3, 4)
+(1, 3, 5)
+(1, 4, 5)
+(2, 3, 4)
+(2, 3, 5)
+(2, 4, 5)
+(3, 4, 5)
+```
+
+```
+Values
+(10, 2, 5)  checks are true, false, true 
+(10, 2, 1)  checks are true, false, true
+(10, 2, 8)  checks are true, false, true
+(10, 2, 12) checks are false, true, true
+(10, 5, 1)  checks are true, false, true
+(10, 5, 8)  checks are true, true, true ****
+(10, 5, 12) checks are true, true, true ****
+(10, 1, 8)  checks are true, false, true
+(10, 1, 12) checks are false, true, true
+(10, 8, 12) checks are true, true, true ****
+(2, 5, 1)   checks are true, true, false
+(2, 5, 8)   checks are false, true, true
+(2, 5, 12)  checks are false, true, true
+(2, 1, 8)   checks are false, true, true
+(2, 1, 12)  checks are false, true, true
+(2, 8, 12)  checks are false, true, true
+(5, 1, 8)   checks are false, true, true
+(5, 1, 12)  checks are false, true, true
+(5, 8, 12)  checks are true, true, true ****
+(1, 8, 12)  checks are false, true, true
+```
+
+There are 4 triangular triplets that can be constructed from elements of this array,
+namely (0, 2, 4), (0, 2, 5), (0, 4, 5), and (2, 4, 5).
+
+Write a function:
+
+```
+class CountTriangles { public int solution(int [] A); }
+```
+
+that, given an array A consisting of N integers, returns the number of triangular triplets in this array.
+
+Write an efficient algorithm for the following assumptions:
+
+- N is an integer within the range [1..1000];
+- each element of array A is an integer within the range [1..1,000,000,000]
