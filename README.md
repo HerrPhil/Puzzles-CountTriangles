@@ -27,7 +27,7 @@ A[4] = 8
 A[5] = 12
 ```
 
-There are C(6,3) unordered combinations = 6!/(3!(6-3)!) = 6!/(3!*3!) = 720/(6*6) = 720/36 = 20
+There are C(6,3) unordered combinations = 6!/(3!(6-3)!) = 6!/(3!\*3!) = 720/(6\*6) = 720/36 = 20
 
 ```
 Elements
