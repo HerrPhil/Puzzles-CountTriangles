@@ -1,5 +1,9 @@
 # Puzzles-CountTriangles
 
+According to the note [here](https://codility-solutions.com/lessons/lesson-15-caterpillar-method/),
+the count triangle problem uses the caterpillar method.
+It checks elements in a way that is reminiscent of the movements of a caterpillar.
+
 ## Overview
 
 Count the number of triangles that can be built from a given set of edges.
