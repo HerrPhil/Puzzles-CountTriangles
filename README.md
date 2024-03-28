@@ -93,6 +93,21 @@ Write an efficient algorithm for the following assumptions:
 - N is an integer within the range [1..1000];
 - each element of array A is an integer within the range [1..1,000,000,000]
 
+### Naive solution
+
+Use three nested loops.
+
+Loop on P from 0 to N - 2.
+
+Loop on Q from P + 1 to N - 1.
+
+Loop on R from Q + 1 to N.
+
+The performance of the naive solution is:
+
+- 34 iterations
+- 60 comparisons 
+
 ### Internet solution
 
 The internet solution uses a sort and claims the sort reduces the number comparisons needed.
@@ -153,9 +168,58 @@ The value triplets are now:
 (8, 10, 12)   ****
 ```
 
+The triangular test results are now:
+
+
+The triplet test results are now:
+
+```
+(1, 2, 5)     false, true, true
+(1, 2, 8)     false, true, true
+(1, 2, 10)    false, true, true
+(1, 2, 12)    false, true, true
+(1, 5, 8)     false, true, true
+(1, 5, 10)    false, true, true
+(1, 5, 12)    false, true, true
+(1, 8, 10)    false, true, true
+(1, 8, 12)    false, true, true
+(1, 10, 12)   false, true, true
+(2, 5, 8)     false, true, true
+(2, 5, 10)    false, true, true
+(2, 5, 12)    false, true, true
+(2, 8, 10)    false, true, true
+(2, 8, 12)    false, true, true
+(2, 10, 12)   false, true, true
+(5, 8, 10)    true, true, true
+(5, 8, 12)    true, true, true
+(5, 10, 12)   true, true, true
+(8, 10, 12)   true, true, true
+```
+
 The internet solution is very non-obvious.
 
 The stop condition of when to add to the result, when k == N, is not intuitive.
 
-Also the extra checks of when k = i + 1, then there are checks when j == k, which makes no sense.
+For the sample array,
 
+The performance of the internet solution is:
+
+- 25 iterations
+- 8 comparisons
+
+### Optimized solution
+
+To leverage the sorted array even more,
+
+- we note that all the triangular triplets are at the end of the list.
+- we note that all the non-triangular triplets fail the A[P] + A[R] > A[Q] test
+
+Therefore, we can step through the sorted array in reverse order.
+When A[P] + A[R] > A[Q] is false, then stop counting triangular results.
+
+For th sample array,
+
+The performance of the optimized solution is:
+
+- 13 iterations
+- 8 comparisons
