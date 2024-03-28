@@ -216,10 +216,10 @@ The performance of the internet solution is:
 To leverage the sorted array even more,
 
 - we note that all the triangular triplets are at the end of the list.
-- we note that all the non-triangular triplets fail the A[P] + A[R] > A[Q] test
+- we note that all the non-triangular triplets fail the A[P] + A[Q] > A[R] test
 
 Therefore, we can step through the sorted array in reverse order.
-When A[P] + A[R] > A[Q] is false, then stop counting triangular results.
+When A[P] + A[Q] > A[R] is false, then stop counting triangular results.
 
 For th sample array,
 
