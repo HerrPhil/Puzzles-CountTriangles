@@ -34,16 +34,28 @@ public class CountTriangles {
 
         int iterations = 0;
 
+        int comparisons = 0;
+
         for (int i = 0; i < N; i++) {
 
+            System.out.printf("for next i before while-loop%n");
+
+            iterations++;
 
             for (int j = i + 1; j < N; j++) {
 
-                int k = i + 1;
+                iterations++;
+
+                int k = j + 1;
 
                 System.out.printf("for next j before while-loop%n");
+
                 System.out.printf("(P, Q, R) values are (%d, %d, %d)%n", i, j, k);
-                System.out.printf("(A[P], A[Q], A[R]) values are (%d, %d, %d)%n", A[i], A[j], A[k]);
+                if (k < N) {
+                    System.out.printf("(A[P], A[Q], A[R]) values are (%d, %d, %d)%n", A[i], A[j], A[k]);
+                } else {
+                    System.out.printf("(A[P], A[Q]) and k values are (%d, %d) and %d%n", A[i], A[j], k);
+                }
 
                 // for every i and j we figure out the maximal k that can be a
                 // triangular, and when we increase j the former k would still
@@ -53,6 +65,8 @@ public class CountTriangles {
                 while (k < N && A[i] + A[j] > A[k]) {
 
                     iterations++;
+
+                    comparisons += 2; // k < N and A[i] + A[j] > A[k]
 
                     System.out.printf("while-loop before k-increment%n");
                     System.out.printf("(P, Q, R) values are (%d, %d, %d)%n", i, j, k);
@@ -64,18 +78,21 @@ public class CountTriangles {
                     System.out.printf("(P, Q, R) values are (%d, %d, %d)%n", i, j, k);
                     if (k < N) {
                         System.out.printf("(A[P], A[Q], A[R]) values are (%d, %d, %d)%n", A[i], A[j], A[k]);
+                    } else {
+                        System.out.printf("(A[P], A[Q]) and k values are (%d, %d) and %d%n", A[i], A[j], k);
                     }
                 }
 
-                System.out.printf("result before k - j - 1 change is %d%n", result);
+                System.out.printf("result before k - j - 1 = %d - %d - 1 change is %d%n", k, j, result);
                 result = result + (k - j - 1);
-                System.out.printf("result after k - j - 1 change is %d%n", result);
+                System.out.printf("result after k - j - 1 = %d - %d - 1 change is %d%n", k, j, result);
 
             }
 
         }
 
         System.out.printf("Performance: iterations is %d%n", iterations);
+        System.out.printf("Performance: comparisons is %d%n", comparisons);
 
         return result;
     }
