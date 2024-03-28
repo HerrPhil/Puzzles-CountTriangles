@@ -152,3 +152,10 @@ The value triplets are now:
 (5, 10, 12)   ****
 (8, 10, 12)   ****
 ```
+
+The internet solution is very non-obvious.
+
+The stop condition of when to add to the result, when k == N, is not intuitive.
+
+Also the extra checks of when k = i + 1, then there are checks when j == k, which makes no sense.
+
