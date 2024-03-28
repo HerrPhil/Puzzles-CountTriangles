@@ -92,3 +92,61 @@ Write an efficient algorithm for the following assumptions:
 
 - N is an integer within the range [1..1000];
 - each element of array A is an integer within the range [1..1,000,000,000]
+
+### Internet solution
+
+The internet solution uses a sort and claims the sort reduces the number comparisons needed.
+
+See [here](https://codility-solutions.com/lessons/lesson-15-caterpillar-method/counttriangles/)
+
+Given the same input array:
+
+```
+A[0] = 10
+A[1] = 2
+A[2] = 5
+A[3] = 1
+A[4] = 8
+A[5] = 12
+```
+
+First sort it.
+
+```
+A[0] = 1
+A[1] = 2
+A[2] = 5
+A[3] = 8
+A[4] = 10
+A[5] = 12
+```
+
+For every P and Q we figure out the maximal R that can be a
+triangular, and when we increase Q the former R would still
+be a triangular because of the sorted array, so we just need
+to count the number of triangular between Q and R.
+
+The element triplets would be the same.
+
+The value triplets are now:
+
+(1, 2, 5)
+(1, 2, 8)
+(1, 2, 10)
+(1, 2, 12)
+(1, 5, 8)
+(1, 5, 10)
+(1, 5, 12)
+(1, 8, 10)
+(1, 8, 12)
+(1, 10, 12)
+(2, 5, 8)
+(2, 5, 10)
+(2, 5, 12)
+(2, 8, 10)
+(2, 8, 12)
+(2, 10, 12)
+(5, 8, 10)    ****
+(5, 8, 12)    ****
+(5, 10, 12)   ****
+(8, 10, 12)   ****
