@@ -130,6 +130,7 @@ The element triplets would be the same.
 
 The value triplets are now:
 
+```
 (1, 2, 5)
 (1, 2, 8)
 (1, 2, 10)
@@ -150,3 +151,4 @@ The value triplets are now:
 (5, 8, 12)    ****
 (5, 10, 12)   ****
 (8, 10, 12)   ****
+```
