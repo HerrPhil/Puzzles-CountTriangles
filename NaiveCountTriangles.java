@@ -6,6 +6,7 @@ public class NaiveCountTriangles {
         System.out.printf("Hello naive count triangles solution%n");
         if (args != null && args.length == 1 && args[0].toLowerCase().equals("-usage")) {
             System.out.printf("java NaiveCountTriangles%n");
+            return;
         }
         int [] A = new int [] {10, 2, 5, 1, 8, 12};
         NaiveCountTriangles solution = new NaiveCountTriangles();
